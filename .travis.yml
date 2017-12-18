@@ -1,0 +1,37 @@
+sudo: false
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+    - $HOME/phpunit-bin
+
+language:
+  - php
+  - node_js
+
+php:
+  - 5.6
+  - 7.0
+
+env:
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=latest WP_MULTISITE=1
+  - WP_VERSION=trunk WP_MULTISITE=0
+  - WP_VERSION=trunk WP_MULTISITE=1
+
+install:
+  - nvm install 6 && nvm use 6
+  - npm install
+  - export DEV_LIB_PATH=node_modules/dev-lib
+  - source $DEV_LIB_PATH/travis.install.sh
+
+script:
+  - source $DEV_LIB_PATH/travis.script.sh
+
+after_script:

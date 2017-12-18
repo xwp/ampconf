@@ -1,0 +1,24 @@
+{
+  "name": "wp-amp-theme",
+  "version": "0.1.0",
+  "description": "WordPress AMP Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xwp/wp-amp-theme.git"
+  },
+  "author": "",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/xwp/wp-amp-theme/issues"
+  },
+  "homepage": "https://github.com/xwp/wp-amp-theme#readme",
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-wordpress": "^2.0.0",
+    "wp-dev-lib": "git+ssh://git@github.com/xwp/wp-dev-lib.git"
+  }
+}
