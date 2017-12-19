@@ -17,19 +17,19 @@ if ( defined( 'WP_CONTENT_DIR' ) && ! defined( 'WP_PLUGIN_DIR' ) ) {
 	define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins/' ); // @codingStandardsIgnoreLine.
 }
 
-$beans_tests_dir = getenv( 'WP_TESTS_DIR' );
+$_tests_dir = getenv( 'WP_TESTS_DIR' );
 
 // Travis CI & Vagrant SSH tests directory.
-if ( empty( $beans_tests_dir ) ) {
-	$beans_tests_dir = '/tmp/wordpress-tests';
+if ( empty( $_tests_dir ) ) {
+	$_tests_dir = '/tmp/wordpress-tests';
 }
 
 // Relative path to Core tests directory.
-if ( ! file_exists( $beans_tests_dir . '/includes/' ) ) {
-	$beans_tests_dir = '../../../../tests/phpunit';
+if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
+	$_tests_dir = '../../../../tests/phpunit';
 }
 
-if ( ! file_exists( $beans_tests_dir . '/includes/' ) ) {
+if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
 	trigger_error( 'Unable to locate wordpress-tests-lib', E_USER_ERROR ); // @codingStandardsIgnoreLine.
 }
 
