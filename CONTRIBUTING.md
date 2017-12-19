@@ -2,8 +2,8 @@
 
 You may use your preferred local development environment for this project. Below are the steps to setup the AMP theme in your WP local install:
 
-1. `git clone --recursive https://github.com/xwp/wp-amp-theme amp` to clone the [AMP theme repository](https://github.com/xwp/wp-amp-theme) in your `themes` directory.
-2. `cd amp` and `npm install` to install the [dev-lib](https://github.com/xwp/wp-dev-lib) which is used to run code sniffers (WPCS, ESLint) and PHPUnit in a pre-commit hook (macOS/Linux only) as well as on Travis. If you are working in a macOS Linux environment, it is advised to install the pre-commit hook `./node_modules/wp-dev-lib/install-pre-commit-hook.sh` which will run the code sniffers and phpunit (if possible) locally before staged changes are committed (More info [here](https://github.com/xwp/wp-dev-lib/blob/master/readme.md).
+1. `git clone https://github.com/xwp/wp-amp-theme amp` to clone the [AMP theme repository](https://github.com/xwp/wp-amp-theme) in your `themes` directory.
+2. `cd amp` and `npm install` to install the [dev-lib](https://github.com/xwp/wp-dev-lib) which is used to run code sniffers (WPCS, ESLint) and PHPUnit in a pre-commit hook (macOS/Linux only) as well as on Travis. If you are working in a macOS Linux environment, it is advised to install the pre-commit hook `./node_modules/wp-dev-lib/install-pre-commit-hook.sh` which will run the code sniffers and PHPUnit (if possible) locally before staged changes are committed (More info [here](https://github.com/xwp/wp-dev-lib/blob/master/readme.md).
 
 ## Branching Strategy
 The branching strategy should follows [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) schema. The upcoming releases are managed in this repository [Projects](https://github.com/xwp/wp-amp-theme/projects). Here is what a development cycle typically looks like:
