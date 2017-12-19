@@ -28,7 +28,7 @@ env:
 install:
   - nvm install 6 && nvm use 6
   - npm install
-  - export DEV_LIB_PATH=node_modules/dev-lib
+  - export DEV_LIB_PATH=node_modules/wp-dev-lib
   - source $DEV_LIB_PATH/travis.install.sh
 
 script:

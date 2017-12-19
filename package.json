@@ -2,9 +2,10 @@
   "name": "wp-amp-theme",
   "version": "0.1.0",
   "description": "WordPress AMP Theme",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "DIFF_BASE=develop ./node_modules/wp-dev-lib/pre-commit"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,6 @@
   "devDependencies": {
     "eslint": "^4.13.1",
     "eslint-config-wordpress": "^2.0.0",
-    "wp-dev-lib": "git+ssh://git@github.com/xwp/wp-dev-lib.git"
+    "wp-dev-lib": "github:xwp/wp-dev-lib"
   }
 }
