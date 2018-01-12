@@ -13,11 +13,8 @@
 <!doctype html>
 <html amp <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width,minimum-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
 </head>
 
 <body <?php body_class(); ?>>
