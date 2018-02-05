@@ -162,6 +162,7 @@ add_action( 'widgets_init', 'ampconf_widgets_init' );
  */
 function ampconf_enqueue_styles() {
 	wp_enqueue_style( 'ampconf', get_template_directory_uri() . '/assets/dist/css/main.css' );
+	wp_add_inline_style( 'ampconf', 'amp-live-list > [update] { display: none; } .amp-live-list-item-new {animation: amp-live-list-item-highlight 2s;}@keyframes amp-live-list-item-highlight {0% {box-shadow: 0 0 5px 2px rgba(81, 203, 238, 1);}100% {box-shadow: 0;}}' ); // @todo Merge into main.css
 }
 add_action( 'wp_enqueue_scripts', 'ampconf_enqueue_styles' );
 

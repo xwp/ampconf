@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php ampconf_post_attributes(); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :

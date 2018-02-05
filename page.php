@@ -21,7 +21,12 @@ get_header(); ?>
 		?>
 		<div class="wrap">
 			<div class="wrap__item wrap__item--full-width">
-				<?php get_template_part( 'templates/entry/full', 'page' ); ?>
+				<amp-live-list id="ampconf-live-page-<?php the_ID(); ?>" data-poll-interval="15000" data-max-items-per-page="1">
+					<button update on="tap:ampconf-live-page-<?php the_ID(); ?>.update" class="button"><?php esc_html_e( 'Click for updates!', 'ampconf' ); ?></button>
+					<div items>
+						<?php get_template_part( 'templates/entry/full', 'page' ); ?>
+					</div>
+				</amp-live-list>
 			</div>
 		</div>
 		<?php

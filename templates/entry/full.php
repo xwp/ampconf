@@ -6,7 +6,7 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry--featured' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry--featured' ); ?> data-sort-time="<?php echo esc_attr( get_the_time( 'U' ) ); ?>" data-update-time="<?php echo esc_attr( get_the_modified_time( 'U' ) ); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="entry__thumbnail">
 			<a href="<?php the_permalink(); ?>">

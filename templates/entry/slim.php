@@ -6,7 +6,7 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry--slim' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry entry--slim' ); ?> data-sort-time="<?php echo esc_attr( get_the_date( 'U' ) ); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="entry__thumbnail">
 			<a href="<?php the_permalink(); ?>">

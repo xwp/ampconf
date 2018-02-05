@@ -17,48 +17,23 @@ $subcats = get_categories( array(
 get_header(); ?>
 
 	<div class="wrap">
+
+		<header class="wrap__item wrap__item--page-heading">
+			<?php the_archive_title( '<h1 class="heading heading--h1">', '</h1>' ); ?>
+		</header>
+
+		<?php if ( ! empty( $subcats ) ) : ?>
+			<nav class="wrap__item wrap__item--sub-menu">
+				<ul class="menu menu--horizontal">
+					<?php foreach ( $subcats as $cat ) : ?>
+						<li class="menu-item"><a href="<?php echo esc_url( get_term_link( $cat ) ); ?>"><?php echo esc_html( $cat->name ); ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			</nav>
+		<?php endif; ?>
+
 		<main class="wrap__item wrap__item--blog wrap__item--blog--primary">
-			<?php
-			if ( have_posts() ) :
-				?>
-					<header class="wrap__item wrap__item--page-heading">
-						<?php the_archive_title( '<h1 class="heading heading--h1">', '</h1>' ); ?>
-					</header>
-
-					<?php if ( ! empty( $subcats ) ) : ?>
-						<nav class="wrap__item wrap__item--sub-menu">
-							<ul class="menu menu--horizontal">
-								<?php foreach ( $subcats as $cat ) : ?>
-									<li class="menu-item"><a href="<?php echo esc_url( get_term_link( $cat ) ); ?>"><?php echo esc_html( $cat->name ); ?></a></li>
-								<?php endforeach; ?>
-							</ul>
-						</nav>
-					<?php endif; ?>
-				<?php
-
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
-
-					?>
-					<div class="wrap__subitem wrap__subitem--blog">
-						<?php get_template_part( 'templates/entry/slim' ); ?>
-					</div>
-					<?php
-
-				endwhile;
-
-				the_posts_pagination();
-			else :
-
-				?>
-				<div class="wrap__subitem wrap__subitem--blog">
-					<?php get_template_part( 'templates/entry/none' ); ?>
-				</div>
-				<?php
-
-			endif;
-			?>
+			<?php get_template_part( 'templates/live-lists/posts' ); ?>
 		</main>
 
 		<?php get_sidebar(); ?>
