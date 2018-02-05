@@ -5,8 +5,11 @@
 .entry {
 
 	&--slim {
+		padding: $site-gutter;
+		border-bottom: 1px solid $border-color;
+
 		@media ( query( min, tablet ) ) {
-			padding-top: 0;
+			padding: $site-gutter 0;
 		}
 
 		&::after {

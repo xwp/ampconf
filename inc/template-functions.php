@@ -6,6 +6,14 @@
  */
 
 /**
+ * Additional post classes.
+ *
+ * @array
+ */
+global $ampconf_additional_post_classes;
+$ampconf_additional_post_classes = array();
+
+/**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
@@ -20,6 +28,29 @@ function ampconf_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'ampconf_body_classes' );
+
+/**
+ * Adds custom classes to the array of post classes.
+ *
+ * @global array $ampconf_additional_post_classes
+ * @param array $classes Classes for the post element.
+ * @return array Classes.
+ */
+function ampconf_post_classes( $classes ) {
+	global $ampconf_additional_post_classes;
+	return array_merge( $classes, $ampconf_additional_post_classes );
+}
+add_filter( 'post_class', 'ampconf_post_classes' );
+
+/**
+ * Override the additional post classes.
+ *
+ * @param array $post_classes Post classes to add.
+ */
+function ampconf_set_additional_post_classes( $post_classes ) {
+	global $ampconf_additional_post_classes;
+	$ampconf_additional_post_classes = $post_classes;
+}
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.

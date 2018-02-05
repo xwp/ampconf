@@ -23,13 +23,7 @@ get_header(); ?>
 				/* Start the Loop */
 				while ( have_posts() ) :
 					the_post();
-
-					?>
-					<div class="wrap__subitem wrap__subitem--blog">
-						<?php get_template_part( 'templates/entry/slim' ); ?>
-					</div>
-					<?php
-
+					get_template_part( 'templates/entry/slim' );
 				endwhile;
 
 				the_posts_pagination();

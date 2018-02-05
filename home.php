@@ -15,32 +15,25 @@ get_header(); ?>
 	<div class="wrap">
 		<?php
 		// Only show the feature and subfeatures when not paged.
-		if ( ! is_paged() ) {
-			if ( have_posts() ) {
-				$post_count = 0;
+		if ( ! is_paged() && have_posts() ) {
+			the_post();
+			ampconf_set_additional_post_classes( array( 'wrap__item', 'wrap__item--full-width' ) );
+			get_template_part( 'templates/entry/featured' );
+			?>
+			<hr>
+			<?php
 
-				while ( have_posts() ) {
-					the_post();
-
-					$post_count++;
-
-					if ( 1 === $post_count ) {
-						?>
-						<div class="wrap__item wrap__item--full-width">
-							<?php get_template_part( 'templates/entry/featured' ); ?>
-						</div>
-						<?php
-					} elseif ( 3 >= $post_count ) {
-						?>
-						<div class="wrap__item wrap__item--half wrap__item--half--primary">
-							<?php get_template_part( 'templates/entry/default' ); ?>
-						</div>
-						<?php
-					} else {
-						break;
-					}
-				}
+			// Show the next two posts with the default entry template.
+			for ( $i = 0; have_posts() && $i < 2; $i++ ) { // phpcs:ignore Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed
+				the_post();
+				ampconf_set_additional_post_classes( array(
+					'wrap__item',
+					'wrap__item--half',
+					sprintf( 'wrap__item--half--%s', 0 === $i ? 'primary' : 'secondary' ),
+				) );
+				get_template_part( 'templates/entry/default' );
 			}
+			ampconf_set_additional_post_classes( array() );
 		}
 		?>
 
@@ -60,13 +53,7 @@ get_header(); ?>
 				/* Start the Loop */
 				while ( have_posts() ) :
 					the_post();
-
-					?>
-					<div class="wrap__subitem wrap__subitem--blog">
-						<?php get_template_part( 'templates/entry/slim' ); ?>
-					</div>
-					<?php
-
+					get_template_part( 'templates/entry/slim' );
 				endwhile;
 
 			else :

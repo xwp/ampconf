@@ -12,6 +12,14 @@
 	overflow: hidden;
 }
 
+hr {
+	clear: both;
+	width: 100%;
+	margin: 0 auto;
+	border: none;
+	border-bottom: 1px solid $border-color;
+}
+
 #page {
 	padding-top: 60px;
 
