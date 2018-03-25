@@ -8,8 +8,6 @@
 		display: flex;
 		flex-flow: row nowrap;
 		white-space: nowrap;
-		overflow: auto;
-		overflow-x: scroll;
 		list-style: none;
 		height: 58px;
 		margin: 0 -10px;
@@ -19,7 +17,6 @@
 
 		@media ( query( min, tablet ) ) {
 			flex-wrap: wrap;
-			overflow-x: auto;
 			white-space: normal;
 			margin: 0 -10px;
 			padding: 8px 0;
