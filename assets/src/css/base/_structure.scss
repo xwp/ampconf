@@ -55,12 +55,10 @@ amp-img {
 		width: calc( 100% + #{ 2 * $site-gutter } );
 	}
 
-	&.alignnone,
 	&.aligncenter {
 		@media ( query( min, tablet ) ) {
 			margin-left: auto;
 			margin-right: auto;
-			width: 100%;
 		}
 	}
 
