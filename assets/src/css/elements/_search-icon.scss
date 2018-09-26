@@ -6,8 +6,6 @@
 %search-icon {
 	font-size: 0;
 	position: relative;
-	background: $black;
-	border: 2px solid $white;
 	border-radius: 100%;
 	padding: 5px;
 	cursor: pointer;
@@ -18,7 +16,6 @@
 		position: absolute;
 		bottom: -4px;
 		right: -2px;
-		background: $white;
 		height: 5px;
 		width: 2px;
 		border-radius: 3px;

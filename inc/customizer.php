@@ -5,6 +5,8 @@
  * @package AMPNews
  */
 
+require get_template_directory() . '/inc/customizer/colors.php';
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *

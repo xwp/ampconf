@@ -9,10 +9,10 @@
 		@media ( query( max, tablet ) ) {
 			padding-left: $site-gutter;
 			padding-right: $site-gutter;
+			border-top: none;
 		}
 
 		@media ( query( min, tablet ) ) {
-			border-top: 2px solid $black;
 			padding-top: 30px;
 		}
 
@@ -42,7 +42,6 @@
 
 	&--footer &__item--footer-copyright {
 		margin: 0;
-		color: $grey;
 		font-weight: 300;
 	}
 }
