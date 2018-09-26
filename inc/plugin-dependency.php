@@ -12,7 +12,7 @@
  * @since 0.1
  */
 function ampnews_plugin_dependency_notice() {
-	$filepath = 'amp/amp.php';
+	$filepath = apply_filters( 'filter_ampnews_amp_plugin_path', 'amp/amp.php' );
 	$updates  = get_site_transient( 'update_plugins' );
 
 	// Don't display notice on the installer screen.
@@ -40,6 +40,15 @@ function ampnews_plugin_dependency_notice() {
 			'_wpnonce' => wp_create_nonce( "activate-plugin_{$filepath}" ),
 		);
 	} elseif ( isset( $updates->response[ $filepath ]->new_version ) ) {
+		if ( is_plugin_active( $filepath ) ) {
+			$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $filepath );
+			if (
+				! empty( $plugin_data['Version'] ) &&
+				1 == version_compare( $plugin_data['Version'], $updates->response[ $filepath ]->new_version )
+			) {
+				return;
+			}
+		}
 		$path    = 'update.php';
 		$button  = __( 'Update', 'default' );
 		$message = __( 'A new version of the AMP plugin is available, please upgrade.', 'ampnews' );
