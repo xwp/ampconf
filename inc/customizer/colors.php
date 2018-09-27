@@ -32,6 +32,16 @@ function ampnews_customize_register_colors( $wp_customize ) {
 			'default' => '#555555',
 			'label' => 'Muted Color'
 		),
+		array(
+			'slug' => 'muted_link',
+			'default' => '#2200CC',
+			'label' => 'Muted Link'
+		),
+		array(
+			'slug' => 'headline_color',
+			'default' => '#2c2d2d',
+			'label' => 'Headline Color'
+		),
 	);
 	foreach( $colors as $color ) {
 		$wp_customize->add_setting(
@@ -67,8 +77,10 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 		$primary_color = get_theme_mod( 'primary_color', '#000' );
 		$secondary_color = get_theme_mod( 'secondary_color', '#fff' );
 		$tertiary_color = get_theme_mod( 'tertiary_color', '#777' );
+		$headline_color = get_theme_mod( 'headline_color', '#2c2d2d' );
 		$muted_color = get_theme_mod( 'muted_color', '#555555' );
-		
+		$muted_link = get_theme_mod( 'muted_link', '#2200CC' );
+
 		printf(
 			'<style type="text/css">
 				.site-header__branding {
@@ -117,6 +129,10 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 					color: %2$s;
 				}
 
+				.wrap--footer .wrap__item--footer-copyright a {
+					color: %5$s;
+				}
+
 				.wrap--footer .wrap__item--footer-copyright {
 					color: %3$s;
 				}
@@ -130,10 +146,41 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 				.site-header__description {
 					color: %1$s;
 				}
+
+				.site-header__menu-toggle::before {
+					box-shadow: 0 6px 0 0 %2$s, 0 -6px 0 0 %2$s;
+					background-color: %2$s;
+				}
+
+				.site-header__menu-toggle::after {
+					background-color: %2$s;
+				}
+
+				.entry__meta {
+					color: %3$s;
+				}
+
+				.entry__meta .entry__date {
+					color: %4$s;
+				}
+
+				.entry__meta a {
+					color: %5$s;
+				}
+
+				.entry__title a {
+					color: %6$s;
+				}
+				.heading--widget, .widget-title {
+					color: %3$s;
+				}
 			</style>',
 			esc_js( $primary_color ),
 			esc_js( $secondary_color ),
-			esc_js( $tertiary_color )
+			esc_js( $tertiary_color ),
+			esc_js( $muted_color ),
+			esc_js( $muted_link ),
+			esc_js( $headline_color )
 		);
 		?>
 

@@ -45,8 +45,6 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		color: $white;
-		background-color: $black;
 
 		@media ( query( min, tablet ) ) {
 			position: static;
@@ -177,12 +175,7 @@ body {
 			transform: translate( -50%, -50% );
 			height: 2px;
 			width: 20px;
-			background-color: $white;
 			transition: box-shadow 0.3s ease-out, transform 0.5s cubic-bezier( 0.23, 1, 0.32, 1 ), opacity 0.5s cubic-bezier( 0.23, 1, 0.32, 1 );
-		}
-
-		&::before {
-			box-shadow: 0 6px 0 0 $white, 0 -6px 0 0 $white;
 		}
 
 		&::after {

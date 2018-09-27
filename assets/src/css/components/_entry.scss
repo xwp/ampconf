@@ -254,7 +254,6 @@
 		padding: 0 0 10px;
 		font-size: 14px;
 		line-height: 1.5;
-		color: $muted;
 
 		@media ( query( min, desktop ) ) {
 			font-size: 16px;
@@ -262,7 +261,6 @@
 
 		a {
 			font-weight: 700;
-			color: $black;
 		}
 
 		&--byline::first-letter {
@@ -271,7 +269,6 @@
 
 		&--date a {
 			font-weight: 400;
-			color: $muted;
 		}
 	}
 
