@@ -15,6 +15,10 @@ function ampnews_plugin_dependency_notice() {
 	$filepath = apply_filters( 'filter_ampnews_amp_plugin_path', 'amp/amp.php' );
 	$updates  = get_site_transient( 'update_plugins' );
 
+	if ( apply_filters( 'filter_ampnews_amp_plugin_dependency', false ) ) {
+		return;
+	}
+
 	// Don't display notice on the installer screen.
 	if ( 'update' === get_current_screen()->base ) {
 		return;
@@ -43,8 +47,8 @@ function ampnews_plugin_dependency_notice() {
 		if ( is_plugin_active( $filepath ) ) {
 			$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $filepath );
 			if (
-				! empty( $plugin_data['Version'] ) &&
-				1 == version_compare( $plugin_data['Version'], $updates->response[ $filepath ]->new_version )
+				! empty( $plugin_data['Version'] ) &
+				1 === version_compare( $plugin_data['Version'], $updates->response[ $filepath ]->new_version )
 			) {
 				return;
 			}
