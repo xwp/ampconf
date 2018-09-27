@@ -140,7 +140,7 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 				a,
 				button,
 				input[type="submit"] {
-					color: %1$s;
+					color: %5$s;
 				}
 
 				.site-header__description {

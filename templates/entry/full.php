@@ -22,9 +22,16 @@
 
 	<div class="entry__content">
 		<?php the_content(); ?>
+
+		<div class="entry__share entry__share--in-content">
+			<?php get_template_part( 'templates/social-share' ); ?>
+		</div>
 	</div><!-- .entry__summary -->
 
 	<footer class="entry__footer">
+		<div class="entry__share entry__share--in-footer">
+			<?php get_template_part( 'templates/social-share' ); ?>
+		</div>
 		<?php get_template_part( 'templates/entry/meta/date' ); ?>
 		<?php get_template_part( 'templates/entry/meta/byline' ); ?>
 		<?php get_template_part( 'templates/entry/meta/category' ); ?>
