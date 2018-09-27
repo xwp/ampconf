@@ -220,20 +220,6 @@
 	}
 
 	//
-	// Link more.
-	//
-
-	&__link-more {
-		display: none;
-
-		.more-link {
-			@extend .button;
-
-			max-width: 240px;
-		}
-	}
-
-	//
 	// Entry footer.
 	//
 

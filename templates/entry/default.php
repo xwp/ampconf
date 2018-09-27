@@ -17,7 +17,7 @@
 
 	<header class="entry__header">
 		<?php get_template_part( 'templates/entry/meta/date' ); ?>
-		<?php the_title( '<h3 class="entry__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+		<?php the_title( '<h3 class="entry__title"><a href="' . esc_url( get_permalink() ) . '" ' . ampnews_permalink_open_new()  . 'rel="bookmark">', '</a></h3>' ); ?>
 	</header><!-- .entry__header -->
 
 	<div class="entry__summary">

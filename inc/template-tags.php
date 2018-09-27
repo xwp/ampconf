@@ -35,13 +35,24 @@ if ( ! function_exists( 'ampnews_posted_on' ) ) :
 					),
 				)
 			),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<a ' . ampnews_permalink_open_new()  . 'href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
+
+if ( ! function_exists( 'ampnews_permalink_open_new' ) ) {
+	/**
+	 * Prints permalink target attribute.
+	 */
+	function ampnews_permalink_open_new() {
+		return (
+			parse_url( get_permalink(), PHP_URL_HOST ) !== parse_url( get_site_url(), PHP_URL_HOST )
+		) ? 'target="_blank"' : '';
+	}
+}
 
 if ( ! function_exists( 'ampnews_entry_footer' ) ) :
 	/**
