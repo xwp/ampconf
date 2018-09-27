@@ -21,7 +21,7 @@
 	</header><!-- .entry__header -->
 
 	<div class="entry__summary">
-		<p><?php the_excerpt(); ?></p>
+		<?php the_excerpt(); ?>
 		<p class="entry__link-more">
 			<a href="<?php the_permalink(); ?>" class="more-link">
 				<?php

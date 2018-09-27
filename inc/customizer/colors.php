@@ -182,10 +182,6 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 			esc_js( $muted_link ),
 			esc_js( $headline_color )
 		);
-		?>
-
-</style>
-		<?php
 	}
 	add_action( 'wp_head', 'ampnews_theme_colors' );
 

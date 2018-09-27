@@ -18,7 +18,7 @@ get_header(); ?>
 		?>
 		<amp-live-list id="ampnews-featured-articles-list" class="live-list" data-poll-interval="<?php echo esc_attr( AMPNEWS_LIVE_LIST_POLL_INTERVAL ); ?>" data-max-items-per-page="3">
 			<div update class="live-list__button">
-				<button class="button"on="tap:ampnews-articles-list.update,ampnews-featured-articles-list.update"><?php esc_html_e( 'Load Newer Articles', 'ampnews' ); ?></button>
+				<button class="button" on="tap:ampnews-articles-list.update,ampnews-featured-articles-list.update"><?php esc_html_e( 'Load Newer Articles', 'ampnews' ); ?></button>
 			</div>
 			<div items class="wrap wrap--triple-feature">
 				<?php

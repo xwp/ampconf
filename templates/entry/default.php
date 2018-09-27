@@ -21,7 +21,7 @@
 	</header><!-- .entry__header -->
 
 	<div class="entry__summary">
-		<p><?php the_excerpt(); ?></p>
+		<?php the_excerpt(); ?>
 	</div><!-- .entry__summary -->
 
 	<footer class="entry__footer">

@@ -34,7 +34,6 @@ if ( ! function_exists( 'ampnews_setup' ) ) :
 		add_theme_support( 'amp', array(
 			'comments_live_list' => true,
 		) );
-
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
