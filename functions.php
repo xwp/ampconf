@@ -158,7 +158,7 @@ function ampnews_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'ampnews' ),
-			'id'            => 'sidebar-1',
+			'id'            => 'ampnews-sidebar',
 			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -215,13 +215,6 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
 /**
  * AMP plugin dependency.

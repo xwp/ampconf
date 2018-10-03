@@ -14,6 +14,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 <aside class="wrap__item wrap__item--blog wrap__item--blog--secondary">
 	<div class="wrap__subitem wrap__subitem--blog wrap__subitem--no-separator">
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php dynamic_sidebar( 'ampnews-sidebar' ); ?>
 	</div>
 </aside>

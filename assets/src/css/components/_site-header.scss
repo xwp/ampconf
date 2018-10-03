@@ -79,13 +79,11 @@ body {
 	}
 
 	&__title {
-		width: calc( 100% - 50px );
-		height: 60px;
+		flex: 1 0 auto;
 		margin: 0;
-		padding: 15px 20px;
+		padding-left: 20px;
 		font-size: 24px;
 		font-weight: 700;
-		line-height: 1.25;
 
 		@media ( query( min, tablet ) ) {
 			width: auto;
@@ -198,16 +196,18 @@ body {
 	//
 
 	&__nav {
-		position: absolute;
-		z-index: 1;
-		top: 60px;
-		left: 0;
-		right: 0;
 		bottom: 0;
-		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		left: 0;
+		overflow-y: scroll;
+		position: absolute;
+		right: 0;
+		top: 30px;
 		transform: translateY( -100% );
 		transition: transform 0.5s cubic-bezier( 0.23, 1, 0.32, 1 );
-		overflow-y: scroll;
+		z-index: 1;
 
 		.is-menu-expanded & {
 			transform: none;
@@ -243,15 +243,17 @@ body {
 	//
 	// Search form.
 	//
-
 	&__search {
+
+		&.site-header__search-desktop {
+			@media ( query( min, tablet ) ) {
+				display: block;
+			}
+		}
+
 		display: none;
 		margin-top: -4px;
 		margin-bottom: -4px;
-
-		@media ( query( min, tablet ) ) {
-			display: block;
-		}
 
 		input {
 			border: 0;

@@ -38,15 +38,13 @@ $description = get_bloginfo( 'description', 'display' );
 				<?php if ( $description || is_customize_preview() ) : ?>
 					<p class="site-header__description"><?php echo esc_html( $description ); ?></p>
 				<?php endif; ?>
-
 				<button
-						class="site-header__menu-toggle"
-						on="tap:AMP.setState( { ampNews: { mobileMenu: ! ampNews.mobileMenu } } )"
-						aria-controls="primary-menu"
-						aria-expanded="false">
+					class="site-header__menu-toggle"
+					on="tap:AMP.setState( { ampNews: { mobileMenu: ! ampNews.mobileMenu } } )"
+					aria-controls="primary-menu"
+					aria-expanded="false">
 					<span class="screen-reader-text"><?php esc_html_e( 'Open menu', 'ampnews' ); ?></span>
 				</button>
-
 			</div>
 
 			<nav class="site-header__nav">
@@ -61,7 +59,7 @@ $description = get_bloginfo( 'description', 'display' );
 					);
 				?>
 
-				<div class="site-header__search">
+				<div class="site-header__search site-header__search-desktop">
 					<?php get_search_form(); ?>
 				</div>
 			</nav>

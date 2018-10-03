@@ -144,7 +144,7 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 				}
 
 				.site-header__description {
-					color: %1$s;
+					color: %2$s;
 				}
 
 				.site-header__menu-toggle::before {
