@@ -776,6 +776,13 @@ input[type='submit']:hover {
   margin: 0 auto;
 }
 
+.wrap .search-form {
+  display: flex;
+  max-width: 300px;
+  margin: auto;
+  padding: 20px 0;
+}
+
 .wrap__item {
   width: 100%;
   flex: 0 0 auto;

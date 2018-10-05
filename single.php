@@ -28,10 +28,10 @@ get_header(); ?>
 
 		<div class="wrap wrap--single">
 			<?php
-			get_template_part( 'templates/more-stories' );
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+			get_template_part( 'templates/more-stories' );
 			?>
 		</div>
 		<?php
@@ -39,4 +39,5 @@ get_header(); ?>
 	?>
 
 <?php
+do_action( 'ampnews-after-wrap-single' );
 get_footer();

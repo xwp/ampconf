@@ -5,8 +5,16 @@
 .wrap {
 	display: flex;
 	flex-flow: row wrap;
-	max-width: $site-max-width - ( 2 * $site-gutter );
+	justify-content: center;
 	margin: 0 auto;
+	max-width: $site-max-width - ( 2 * $site-gutter );
+
+	.search-form {
+		display: flex;
+		max-width: 300px;
+		margin: auto;
+		padding: 20px 0;
+	}
 
 	//
 	// Wrap item.

@@ -19,7 +19,15 @@ $description = get_bloginfo( 'description', 'display' );
 </head>
 
 <body <?php body_class(); ?>>
-
+	<amp-app-banner
+		layout="nodisplay"
+		id="banner">
+		<div id="app-banner-text">Get the app.</div>
+		<div id="app-banner-action">
+			<button
+			open-button>View in app</button>
+		</div>
+	</amp-app-banner>
 	<div id="page" class="" [class]="ampNews.mobileMenu ? 'no-scroll' : ''">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ampnews' ); ?></a>
@@ -34,7 +42,6 @@ $description = get_bloginfo( 'description', 'display' );
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					<?php endif; ?>
 				</<?php ampnews_branding_tag(); ?>>
-
 				<?php if ( $description || is_customize_preview() ) : ?>
 					<p class="site-header__description"><?php echo esc_html( $description ); ?></p>
 				<?php endif; ?>

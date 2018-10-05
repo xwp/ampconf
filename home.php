@@ -10,8 +10,9 @@
  * @package AMPNews
  */
 
-get_header(); ?>
-
+get_header();
+do_action( 'ampnews-before-wrap' );
+?>
 <div class="wrap">
 	<main class="wrap__item wrap__item--blog wrap__item--blog--primary">
 		<?php if ( have_posts() ) : ?>
@@ -40,13 +41,13 @@ get_header(); ?>
 			<div class="wrap__subitem wrap__subitem--blog">
 				<?php get_template_part( 'templates/entry/none' ); ?>
 			</div>
-		<?php endif; ?>
-
-		<?php the_posts_pagination(); ?>
+		<?php endif;
+		the_posts_pagination();
+	?>
 	</main>
-
 	<?php get_sidebar(); ?>
 </div><!-- .wrap -->
 
 <?php
+do_action( 'ampnews-after-wrap' );
 get_footer();

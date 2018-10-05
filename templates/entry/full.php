@@ -19,7 +19,12 @@
 	</header><!-- .entry__header -->
 
 	<div class="entry__content">
-		<?php the_content(); ?>
+
+		<?php
+		do_action( 'ampnews-before-article' );
+		the_content();
+		do_action( 'ampnews-after-article' );
+		?>
 
 		<div class="entry__share entry__share--in-content">
 			<?php get_template_part( 'templates/social-share' ); ?>
