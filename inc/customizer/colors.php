@@ -74,6 +74,7 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 	 * @see ampnews_custom_header_setup().
 	 */
 	function ampnews_theme_colors() {
+		$background_color = get_theme_mod( 'background_color', '#f1f1f1' );
 		$primary_color = get_theme_mod( 'primary_color', '#000' );
 		$secondary_color = get_theme_mod( 'secondary_color', '#fff' );
 		$tertiary_color = get_theme_mod( 'tertiary_color', '#777' );
@@ -83,6 +84,9 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 
 		printf(
 			'<style type="text/css">
+				body {
+					background-color: %7$s;
+				}
 				.site-header__branding {
 					background-color: %1$s;
 					color: %2$s;
@@ -180,7 +184,8 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 			esc_js( $tertiary_color ),
 			esc_js( $muted_color ),
 			esc_js( $muted_link ),
-			esc_js( $headline_color )
+			esc_js( $headline_color ),
+			esc_js( $background_color )
 		);
 	}
 	add_action( 'wp_head', 'ampnews_theme_colors' );
