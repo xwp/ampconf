@@ -8,6 +8,7 @@
 	justify-content: center;
 	margin: 0 auto;
 	max-width: $site-max-width - ( 2 * $site-gutter );
+	overflow: hidden;
 
 	.search-form {
 		display: flex;
@@ -192,50 +193,6 @@
 
 			@media ( query( min, desktop ) ) {
 				padding: 60px 0;
-			}
-		}
-	}
-
-	//
-	// Triple 'Featured' layout.
-	//
-	&--triple-feature {
-
-		.wrap__item {
-			display: none;
-
-			.entry__meta {
-				padding-bottom: 0;
-			}
-
-			&:nth-child(1) {
-				@extend .entry--featured;
-				padding-bottom: $site-gutter * 2;
-
-				@media ( query( max, tablet ) ) {
-					padding-bottom: $site-gutter;
-				}
-			}
-
-			&:nth-child(2),
-			&:nth-child(3) {
-				display: block;
-
-				@media ( query( min, tablet ) ) {
-					width: 50%;
-				}
-			}
-
-			&:nth-child(2) {
-				@media ( query( min, tablet ) ) {
-					padding-right: $site-gutter;
-				}
-			}
-
-			&:nth-child(3) {
-				@media ( query( min, tablet ) ) {
-					padding-left: $site-gutter;
-				}
 			}
 		}
 	}

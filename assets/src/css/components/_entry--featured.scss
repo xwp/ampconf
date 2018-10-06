@@ -27,19 +27,6 @@
 
 	.entry__thumbnail {
 		margin: -10px #{ -$site-gutter } 0;
-
-		@media ( query( min, tablet ) ) {
-			width: calc( 100% + 40px );
-		}
-
-		@media ( query( min, desktop ) ) {
-			width: 100%;
-			margin: -10px 0 0;
-		}
-
-		.wp-post-image {
-			padding-bottom: 38%;
-		}
 	}
 
 	//

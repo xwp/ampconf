@@ -118,7 +118,7 @@
 
 			amp-img {
 				flex: 1;
-				object-fit: cover;
+				object-fit: contain;
 			}
 
 			@for $i from 2 through 8 {

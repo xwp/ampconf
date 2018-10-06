@@ -123,7 +123,7 @@ if ( ! function_exists( 'ampnews_setup' ) ) :
 		) as $size ) {
 			$dimensions = explode( 'x', $size );
 
-			add_image_size( 'ampnews-' . $size, $dimensions[0], $dimensions[1], true );
+			add_image_size( 'ampnews-' . $size, $dimensions[0], $dimensions[1], false );
 		}
 	}
 endif;
@@ -173,7 +173,7 @@ add_action( 'widgets_init', 'ampnews_widgets_init' );
  * Enqueues styles.
  */
 function ampnews_enqueue_styles() {
-	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css' );
+	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 1 );
 	wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'ampnews_enqueue_styles' );

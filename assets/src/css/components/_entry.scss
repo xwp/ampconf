@@ -76,10 +76,10 @@
 	}
 
 	&__content {
-		margin-top: -17px;
+		padding-top: 10px;
 
 		@media ( query( min, desktop ) ) {
-			margin-top: -12px;
+			padding-top: 10px;
 		}
 
 		p,
@@ -115,12 +115,6 @@
 		dt {
 			font-weight: 700;
 			color: $black;
-		}
-
-		.aligncenter {
-			margin-left: auto;
-			margin-right: auto;
-			text-align: center;
 		}
 
 		.alignleft {
