@@ -19,15 +19,7 @@ $description = get_bloginfo( 'description', 'display' );
 </head>
 
 <body <?php body_class(); ?>>
-	<amp-app-banner
-		layout="nodisplay"
-		id="banner">
-		<div id="app-banner-text">Get the app.</div>
-		<div id="app-banner-action">
-			<button
-			open-button>View in app</button>
-		</div>
-	</amp-app-banner>
+	<?php do_action( 'ampnews-after-body-tag' ); ?>
 	<div id="page" class="" [class]="ampNews.mobileMenu ? 'no-scroll' : ''">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ampnews' ); ?></a>
