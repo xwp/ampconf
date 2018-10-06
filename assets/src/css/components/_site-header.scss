@@ -256,13 +256,14 @@ body {
 		margin-bottom: -4px;
 
 		input {
+			-webkit-appearance: none;
 			border: 0;
-			padding: 4px;
 			font-size: 14px;
-			max-width: 70px;
-			transition: max-width 100ms linear, background-color 100ms linear;
+			max-width: 90px;
+			padding: 4px;
 			text-overflow: ellipsis;
-
+			transition: max-width 100ms linear, background-color 100ms linear;
+	
 			&:focus {
 				background-color: $white;
 				color: $black;
@@ -276,7 +277,7 @@ body {
 
 		button {
 			@extend %search-icon;
-			margin-top: 4px;
+			margin-top: 8px;
 			margin-left: 4px;
 			float: right;
 		}
