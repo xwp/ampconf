@@ -26,6 +26,10 @@
 	//
 
 	.entry__thumbnail {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		width: 100%;
 		margin: -10px #{ -$site-gutter } 0;
 	}
 

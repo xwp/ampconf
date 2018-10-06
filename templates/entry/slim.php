@@ -23,6 +23,7 @@
 	</header><!-- .entry__header -->
 
 	<div class="entry__summary">
+		<?php do_action( 'ampnews-before-excerpt' ); ?>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry__summary -->
 
