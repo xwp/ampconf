@@ -12,7 +12,10 @@
 	</div><!-- End #content -->
 
 	<footer class="wrap wrap--full-width wrap--footer">
-		<?php do_action( 'ampnews-before-footer' ); ?>
+		<?php
+		do_action( 'ampnews-before-footer' );
+		dynamic_sidebar( 'ampnews-header' );
+		?>
 		<nav class="wrap__item wrap__item--footer-menu">
 			<?php
 				wp_nav_menu(

@@ -33,7 +33,7 @@ $description = get_bloginfo( 'description', 'display' );
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ampnews' ); ?></a>
 
 		<header class="site-header" [class]="ampNews.mobileMenu ? 'site-header is-menu-expanded' : 'site-header'">
-
+			<?php dynamic_sidebar( 'ampnews-header' ); ?>
 			<div class="site-header__branding">
 				<<?php ampnews_branding_tag(); ?> class="site-header__title">
 					<?php if ( has_custom_logo() ) : ?>
