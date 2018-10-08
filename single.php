@@ -31,6 +31,7 @@ get_header(); ?>
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+			do_action( 'ampnews-after-comments' );
 			get_template_part( 'templates/more-stories' );
 			?>
 		</div>

@@ -37,6 +37,11 @@
 			width: 240px;
 		}
 
+		a {
+			display: flex;
+			justify-content: right;
+		}
+
 		&::after {
 			content: '';
 			display: table;

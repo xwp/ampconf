@@ -124,10 +124,6 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 					color: %2$s;
 				}
 
-				.wrap--footer {
-					border-top: 2px solid %1$s;
-				}
-
 				.button, .nav-links a, .nav-links span {
 					background: %1$s;
 					color: %2$s;
