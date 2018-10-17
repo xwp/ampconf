@@ -263,6 +263,7 @@ body {
 		&.site-header__search-mobile {
 			@media ( query( max, tablet ) ) {
 				display: block;
+				margin: 0 5px 0 0;
 			}
 		}
 

@@ -38,7 +38,7 @@ $description = get_bloginfo( 'description', 'display' );
 					<p class="site-header__description"><?php echo esc_html( $description ); ?></p>
 				<?php endif; ?>
 				<div class="site-header__search site-header__search-mobile">
-					<a href="<?php echo get_search_link(); ?>">
+					<a href="<?php echo esc_url( home_url( '/search' ) ); ?>">
 						<button>
 							<?php echo esc_attr_x( 'Search', 'submit button', 'default' ); ?>
 						</button>
