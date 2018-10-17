@@ -49,18 +49,19 @@ add_filter( 'excerpt_more', 'ampnews_excerpt_more' );
  */
 function ampnews_get_the_archive_title( $title ) {
 	$parts = explode( ':', $title );
-
 	if ( 2 <= count( $parts ) ) {
 		$title = str_replace( $parts[0] . ': ', '', $title );
 
 		$title = wp_kses(
 			sprintf(
-				'<span>%1$s</span>%2$s',
+				'<span class="heading--archive">%1$s</span>%2$s',
 				$parts[0],
 				$title
 			),
 			array(
-				'span' => array(),
+				'span' => array(
+					'class' => true
+				),
 			)
 		);
 	}
