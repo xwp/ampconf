@@ -18,7 +18,6 @@
 		.wp-post-image {
 			position: relative;
 			width: 100%;
-			padding-bottom: 66%;
 		}
 
 		img {
@@ -216,6 +215,13 @@
 			@extend .button--inline;
 			font-size: 16px;
 			line-height: 20px;
+		}
+
+		.search-form {
+			input {
+				height: 100%;
+				font-style: italic;
+			}
 		}
 	}
 

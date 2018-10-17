@@ -10,7 +10,7 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="entry__thumbnail">
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'ampnews-280x158', array( 'data-amp-layout' => 'fill' ) ); ?>
+				<?php the_post_thumbnail( 'ampnews-280x158', array( 'data-amp-layout' => 'intrinsic' ) ); ?>
 			</a>
 		</figure><!-- .entry__thumbnail -->
 	<?php endif; ?>

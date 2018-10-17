@@ -246,14 +246,27 @@ body {
 	&__search {
 
 		&.site-header__search-desktop {
+			margin-top: -4px;
+			margin-bottom: -4px;
+
 			@media ( query( min, tablet ) ) {
+				display: block;
+				
+			}
+
+			button {
+				margin-top: 5px;
+				margin-left: 4px;
+			}
+		}
+
+		&.site-header__search-mobile {
+			@media ( query( max, tablet ) ) {
 				display: block;
 			}
 		}
 
 		display: none;
-		margin-top: -4px;
-		margin-bottom: -4px;
 
 		input {
 			-webkit-appearance: none;
@@ -263,7 +276,7 @@ body {
 			padding: 4px;
 			text-overflow: ellipsis;
 			transition: max-width 100ms linear, background-color 100ms linear;
-	
+
 			&:focus {
 				background-color: $white;
 				color: $black;
@@ -277,8 +290,6 @@ body {
 
 		button {
 			@extend %search-icon;
-			margin-top: 5px;
-			margin-left: 4px;
 			float: right;
 		}
 	}
