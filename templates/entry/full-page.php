@@ -19,5 +19,12 @@
 
 	<div class="entry__content">
 		<?php the_content(); ?>
+		<div class="entry__share entry__share--in-content">
+		</div>
 	</div><!-- .entry__summary -->
+
+	<footer class="entry__footer">
+		<div class="entry__share entry__share--in-footer">
+		</div>
+</footer>
 </article><!-- .entry -->
