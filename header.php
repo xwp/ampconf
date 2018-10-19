@@ -10,6 +10,8 @@
  */
 
 $description = get_bloginfo( 'description', 'display' );
+$signup_link = apply_filters( 'ampnews-signup-link', '#' );
+$signup_text = apply_filters( 'ampnews-signup-text', __( 'Signup', 'ampnews' ) );
 ?>
 <!doctype html>
 <html amp <?php language_attributes(); ?>>
@@ -37,13 +39,14 @@ $description = get_bloginfo( 'description', 'display' );
 				<?php if ( $description || is_customize_preview() ) : ?>
 					<p class="site-header__description"><?php echo esc_html( $description ); ?></p>
 				<?php endif; ?>
-				<div class="site-header__search site-header__search-mobile">
-					<a href="<?php echo esc_url( home_url( '/search' ) ); ?>">
-						<button>
-							<?php echo esc_attr_x( 'Search', 'submit button', 'default' ); ?>
-						</button>
+				<?php if ( $signup_link && $signup_text ) : ?>
+					<a
+					class="site-header-branding__button button button--signup"
+					href="<?php echo esc_url( $signup_link ); ?>"
+					>
+						<?php echo esc_html( $signup_text ); ?>
 					</a>
-				</div>
+				<?php endif; ?>
 				<button
 					class="site-header__menu-toggle"
 					on="tap:AMP.setState( { ampNews: { mobileMenu: ! ampNews.mobileMenu } } )"
@@ -54,6 +57,14 @@ $description = get_bloginfo( 'description', 'display' );
 			</div>
 
 			<nav class="site-header__nav">
+				<?php if ( $signup_link && $signup_text ) : ?>
+					<a
+					class="site-header-nav__button button button--signup"
+					href="<?php echo esc_url( $signup_link ); ?>"
+					>
+						<?php echo esc_html( $signup_text ); ?>
+					</a>
+				<?php endif; ?>
 				<?php
 					wp_nav_menu(
 						array(
@@ -64,11 +75,13 @@ $description = get_bloginfo( 'description', 'display' );
 						)
 					);
 				?>
-
+				<div class="site-header__search site-header__search-mobile">
+					<?php get_search_form(); ?>
+				</div>
 				<div class="site-header__search site-header__search-desktop">
 					<?php get_search_form(); ?>
 				</div>
 			</nav>
 		</header>
-
+		<?php do_action( 'ampnews-before-content' ); ?>
 		<div id="content">

@@ -30,6 +30,7 @@ get_header(); ?>
 			<?php
 				if ( empty( $query ) ) {
 					get_search_form();
+					do_action( 'ampnews-after-search-form' );
 				} else {
 					get_template_part( 'templates/live-lists/posts' );
 				}

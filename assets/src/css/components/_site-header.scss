@@ -26,9 +26,25 @@ body {
 	// Set no nav box-shadow.
 	nav {
 		&.site-header__nav {
-			
 			@media ( query( max, tablet ) ) {
 				box-shadow: none;
+				flex-wrap: wrap;
+
+				.site-header__menu {
+					flex: 0 0 100%;
+				}
+
+				.site-header-nav__button {
+					display: none;
+				}
+			}
+
+			.site-header-nav__button {
+				margin-right: 20px;
+			}
+
+			.site-header__menu {
+				flex: 1 0 auto;
 			}
 		}
 	}
@@ -74,6 +90,17 @@ body {
 			.is-menu-expanded & {
 				opacity: 1;
 				transition-delay: 0.4s;
+			}
+		}
+
+		.site-header-branding__button {
+			display: none;
+		}
+
+		@media ( query( max, tablet ) ) {
+			.site-header-branding__button {
+				display: block;
+				margin-right: 5px;
 			}
 		}
 	}
@@ -251,7 +278,6 @@ body {
 
 			@media ( query( min, tablet ) ) {
 				display: block;
-				
 			}
 
 			button {
@@ -264,6 +290,8 @@ body {
 			@media ( query( max, tablet ) ) {
 				display: block;
 				margin: 0 5px 0 0;
+				flex: 0 0 100%;
+				padding: 10px 20px;
 			}
 		}
 

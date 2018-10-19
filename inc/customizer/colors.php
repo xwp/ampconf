@@ -42,6 +42,16 @@ function ampnews_customize_register_colors( $wp_customize ) {
 			'default' => '#2c2d2d',
 			'label' => 'Headline Color'
 		),
+		array(
+			'slug' => 'signup_button_background',
+			'default' => '#ffc200',
+			'label' => 'Signup Button Background'
+		),
+		array(
+			'slug' => 'signup_button_color',
+			'default' => '#000',
+			'label' => 'Signup Button Background'
+		),
 	);
 	foreach( $colors as $color ) {
 		$wp_customize->add_setting(
@@ -81,6 +91,8 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 		$headline_color = get_theme_mod( 'headline_color', '#2c2d2d' );
 		$muted_color = get_theme_mod( 'muted_color', '#555555' );
 		$muted_link = get_theme_mod( 'muted_link', '#2200CC' );
+		$signup_button_background = get_theme_mod( 'signup_button_background', '#ffc200' );
+		$signup_button_color = get_theme_mod( 'signup_button_color', '#000' );
 
 		printf(
 			'<style type="text/css">
@@ -106,7 +118,7 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 				}
 
 				.site-header__nav {
-					box-shadow: 30vw 0 0 %1$s, -30vw 0 0 %1$s;
+					box-shadow: 30vw 0 1px %1$s, -30vw 0 1px %1$s;
 					background-color: %1$s;
 					color: %2$s;
 				}
@@ -174,6 +186,11 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 				.heading--widget, .widget-title {
 					color: %3$s;
 				}
+
+				.button.button--signup {
+					background: %8$s;
+					color: %9$s;
+				}
 			</style>',
 			esc_js( $primary_color ),
 			esc_js( $secondary_color ),
@@ -181,7 +198,9 @@ if ( ! function_exists( 'ampnews_theme_colors' ) ) :
 			esc_js( $muted_color ),
 			esc_js( $muted_link ),
 			esc_js( $headline_color ),
-			esc_js( $background_color )
+			esc_js( $background_color ),
+			esc_js( $signup_button_background ),
+			esc_js( $signup_button_color )
 		);
 	}
 	add_action( 'wp_head', 'ampnews_theme_colors' );
