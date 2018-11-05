@@ -49,6 +49,14 @@
 		@media ( query( min, desktop ) ) {
 			font-size: 36px;
 		}
+
+		&-sidebar {
+			font-size: 12px;
+	
+			@media ( query( min, desktop ) ) {
+				font-size: 16px;
+			}
+		}
 	}
 
 	//
