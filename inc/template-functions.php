@@ -69,3 +69,18 @@ function ampnews_get_the_archive_title( $title ) {
 	return $title;
 }
 add_filter( 'get_the_archive_title', 'ampnews_get_the_archive_title' );
+
+
+/**
+ * Prints the published date if applicable.
+ */
+function ampnews_published() {
+	printf(
+		'<span class="ampnews-published">%s %s</span>',
+		__( 'Posted ', 'ampnews' ),
+		esc_html( get_the_date() )
+	);
+}
+
+add_action( 'ampnews-before-article', 'ampnews_published', 1000 );
+
