@@ -13,7 +13,7 @@
 		<?php do_action( 'ampnews-after-entry-header' ); ?>
 	</header><!-- .entry__header -->
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( has_post_thumbnail() && apply_filters( 'ampnews-show-single-image', true, get_the_id() ) ) : ?>
 		<figure class="entry__thumbnail">
 			<?php the_post_thumbnail( 'ampnews-1040x585', array(
 				'data-amp-layout' => 'intrinsic',
