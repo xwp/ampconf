@@ -120,12 +120,8 @@ body {
 		}
 
 		a {
-			color: $white;
+			color: $black;
 			opacity: 1;
-
-			@media ( query( min, tablet ) ) {
-				color: $black;
-			}
 
 			&:hover,
 			&:focus {
