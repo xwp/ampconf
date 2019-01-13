@@ -316,7 +316,9 @@
 	font-style: italic;
 	margin-top: 15px;
 
-	&::before {
-		content: ' • ';
+	&:not(:first-child) {
+		&::before {
+			content: ' • ';
+		}
 	}
 }
