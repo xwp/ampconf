@@ -4,18 +4,7 @@
 .wrap {
 
 	&--footer {
-		max-width: 685px;
-
-		@media ( query( max, tablet ) ) {
-			padding-left: $site-gutter;
-			padding-right: $site-gutter;
-			border-top: none;
-		}
-
-		@media ( query( min, tablet ) ) {
-			padding-top: 30px;
-		}
-
+		width: calc(100% - 40px);
 	}
 
 	&--footer &__item--footer-menu {
