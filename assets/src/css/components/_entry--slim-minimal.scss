@@ -4,7 +4,7 @@
 
 .entry {
 
-	&--slim {
+	&--slim-minimal {
 		padding: $site-gutter;
 		border-bottom: 1px solid $border-color;
 
@@ -23,72 +23,70 @@
 	// Entry thumbnail.
 	//
 
-	&--slim &__thumbnail {
-		// float: right;
-		// width: 122px;
+	&--slim-minimal &__thumbnail {
+		float: right;
+		width: 122px;
 		padding: 0;
-		// margin: 0 0 0 30px;
+		margin: 0 0 0 30px;
 
-		// @media ( query( min, mobile-large ) ) {
-		// 	width: 160px;
-		// }
+		@media ( query( min, mobile-large ) ) {
+			width: 160px;
+		}
 
-		// @media ( query( min, desktop ) ) {
-		// 	width: 240px;
-		// }
+		@media ( query( min, desktop ) ) {
+			width: 240px;
+		}
 
 		a {
 			display: flex;
-			width: 100%;
-			justify-content: center;
+			justify-content: right;
 		}
 
-		// &::after {
-		// 	content: '';
-		// 	display: table;
-		// 	clear: both;
-		// }
+		&::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
 	}
 
 	//
 	// Entry header.
 	//
 
-	&--slim &__header {
+	&--slim-minimal &__header {
 		padding: 0;
-		// margin-right: 142px;
+		margin-right: 142px;
 
-		// @media ( query( min, mobile-large ) ) {
-		// 	margin-right: 190px;
-		// }
+		@media ( query( min, mobile-large ) ) {
+			margin-right: 190px;
+		}
 
-		// @media ( query( min, desktop ) ) {
-		// 	margin-right: 270px;
-		// }
+		@media ( query( min, desktop ) ) {
+			margin-right: 270px;
+		}
 	}
 
 	//
 	// Entry title.
 	//
 
-	&--slim &__title {
-		margin-bottom: 10px;
-		// font-size: 16px;
+	&--slim-minimal &__title {
+		font-size: 16px;
 
-		// @media ( query( min, mobile-large ) ) {
-		// 	font-size: 20px;
-		// }
+		@media ( query( min, mobile-large ) ) {
+			font-size: 20px;
+		}
 
-		// @media ( query( min, desktop ) ) {
-		// 	font-size: 24px;
-		// }
+		@media ( query( min, desktop ) ) {
+			font-size: 24px;
+		}
 	}
 
 	//
 	// Entry summary.
 	//
 
-	&--slim &__summary {
+	&--slim-minimal &__summary {
 		@media ( query( max, tablet ) ) {
 			display: none;
 		}
@@ -104,7 +102,7 @@
 	// Entry footer and meta.
 	//
 
-	&--slim &__footer {
+	&--slim-minimal &__footer {
 		padding-top: 10px;
 
 		@media ( query( max, mobile-large ) ) {
@@ -116,11 +114,11 @@
 		}
 	}
 
-	&--slim &__footer &__meta {
+	&--slim-minimal &__footer &__meta {
 		padding-bottom: 0;
 	}
 
-	&--slim &__meta {
+	&--slim-minimal &__meta {
 
 		&::after {
 			@media ( query( max, desktop ) ) {
