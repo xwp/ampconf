@@ -34,7 +34,7 @@ if ( ! function_exists( 'ampnews_setup' ) ) :
 		add_theme_support( 'amp', array(
 			'comments_live_list' => true,
 			'templates_supported' => 'all',
-			// 'paired' => true,
+			'paired' => true,
 		) );
 
 		// Add default posts and comments RSS feed links to head.
@@ -198,7 +198,7 @@ add_action( 'widgets_init', 'ampnews_widgets_init' );
  * Enqueues styles.
  */
 function ampnews_enqueue_styles() {
-	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 2 );
+	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 7 );
 	wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'ampnews_enqueue_styles' );

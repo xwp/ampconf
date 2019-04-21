@@ -52,9 +52,11 @@
 	//
 	// Entry header.
 	//
-
 	&--slim-minimal &__header {
 		padding: 0;
+	}
+
+	&--slim-minimal.has-post-thumbnail  &__header {
 		margin-right: 142px;
 
 		@media ( query( min, mobile-large ) ) {

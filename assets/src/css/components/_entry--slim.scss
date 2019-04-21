@@ -2,6 +2,18 @@
 // Slim entry.
 //
 
+.terminal-amp-active {
+	.entry {
+		&--slim &__thumbnail {
+			a {
+				display: flex;
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+}
+
 .entry {
 
 	&--slim {
@@ -36,12 +48,6 @@
 		// @media ( query( min, desktop ) ) {
 		// 	width: 240px;
 		// }
-
-		a {
-			display: flex;
-			width: 100%;
-			justify-content: center;
-		}
 
 		// &::after {
 		// 	content: '';

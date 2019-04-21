@@ -9,6 +9,7 @@
 	margin: 0 auto;
 	max-width: $site-max-width - ( 2 * $site-gutter );
 	overflow: hidden;
+	width: 100%;
 
 	.search-form {
 		display: flex;
