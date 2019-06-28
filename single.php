@@ -28,6 +28,7 @@ get_header(); ?>
 
 		<div class="wrap wrap--single">
 			<?php
+			do_action( 'ampnews-before-comments' );
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
