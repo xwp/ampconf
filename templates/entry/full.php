@@ -32,6 +32,9 @@
 		<div class="entry__share entry__share--in-content">
 			<?php get_template_part( 'templates/social-share' ); ?>
 		</div>
+		<?php
+			do_action( 'ampnews-after-share' );
+		?>
 	</div><!-- .entry__summary -->
 
 	<footer class="entry__footer">
