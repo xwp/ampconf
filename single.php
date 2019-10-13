@@ -30,7 +30,7 @@ get_header(); ?>
 			<?php
 			do_action( 'ampnews-before-comments' );
 			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+				// comments_template();
 			endif;
 			do_action( 'ampnews-after-comments' );
 			get_template_part( 'templates/more-stories' );
