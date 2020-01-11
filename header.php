@@ -55,6 +55,7 @@ $signup_text = apply_filters( 'ampnews-signup-text', __( 'Signup', 'ampnews' ) )
 					<span class="screen-reader-text"><?php esc_html_e( 'Open menu', 'ampnews' ); ?></span>
 				</button>
 			</div>
+			<?php dynamic_sidebar( 'ampnews-header-bottom' ); ?>
 
 			<nav class="site-header__nav">
 				<?php if ( $signup_link && $signup_text ) : ?>

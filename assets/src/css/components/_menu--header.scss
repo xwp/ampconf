@@ -39,10 +39,17 @@
 					opacity: 0.8;
 				}
 
+				@media ( query( min, desktop ) ) {
+					padding: 10px;
+				}
+
+				@media ( query( min, tablet ) ) and ( query( max, desktop ) ) {
+					padding: 5px;
+				}
+
 				@media ( query( min, tablet ) ) {
 					display: flex;
 					max-width: none;
-					padding: 10px;
 					opacity: 0.8;
 
 					&:hover,

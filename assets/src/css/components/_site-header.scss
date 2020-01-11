@@ -23,6 +23,20 @@ body {
 		flex-flow: column nowrap;
 	}
 
+	> .widget {
+		order: 100;
+
+		@media ( query( max, tablet ) ) {
+			padding: 10px 0 0 0;
+
+			.widget-title {
+				font-size: 12px;
+				margin: 0 0 10px 0;
+				padding: 0;
+			}
+		}
+	}
+
 	// Set no nav box-shadow.
 	nav {
 		&.site-header__nav {

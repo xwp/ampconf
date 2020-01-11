@@ -171,8 +171,19 @@ function ampnews_widgets_init() {
 	);
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Header', 'ampnews' ),
+			'name'          => esc_html__( 'Header (Top)', 'ampnews' ),
 			'id'            => 'ampnews-header',
+			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Header (Bottom)', 'ampnews' ),
+			'id'            => 'ampnews-header-bottom',
 			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -198,7 +209,7 @@ add_action( 'widgets_init', 'ampnews_widgets_init' );
  * Enqueues styles.
  */
 function ampnews_enqueue_styles() {
-	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 7 );
+	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 8 );
 	wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'ampnews_enqueue_styles' );
