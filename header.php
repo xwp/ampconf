@@ -61,7 +61,7 @@ $signup_classes = apply_filters( 'ampnews-signup-class', 'site-header-branding__
 			<nav class="site-header__nav">
 				<?php if ( $signup_link && $signup_text ) : ?>
 					<a
-					class="site-header-nav__button button button--signup"
+					class="<?php echo esc_attr( $signup_classes ); ?>"
 					href="<?php echo esc_url( $signup_link ); ?>"
 					>
 						<?php echo esc_html( $signup_text ); ?>
