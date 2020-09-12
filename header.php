@@ -9,9 +9,10 @@
  * @package AMPNews
  */
 
-$description = get_bloginfo( 'description', 'display' );
-$signup_link = apply_filters( 'ampnews-signup-link', '#' );
-$signup_text = apply_filters( 'ampnews-signup-text', __( 'Signup', 'ampnews' ) );
+$description    = get_bloginfo( 'description', 'display' );
+$signup_link    = apply_filters( 'ampnews-signup-link', '#' );
+$signup_text    = apply_filters( 'ampnews-signup-text', __( 'Signup', 'ampnews' ) );
+$signup_classes = apply_filters( 'ampnews-signup-class', 'site-header-branding__button button button--signup' );
 ?>
 <!doctype html>
 <html amp <?php language_attributes(); ?>>
@@ -41,7 +42,7 @@ $signup_text = apply_filters( 'ampnews-signup-text', __( 'Signup', 'ampnews' ) )
 				<?php endif; ?>
 				<?php if ( $signup_link && $signup_text ) : ?>
 					<a
-					class="site-header-branding__button button button--signup"
+					class="<?php echo esc_attr( $signup_classes ); ?>"
 					href="<?php echo esc_url( $signup_link ); ?>"
 					>
 						<?php echo esc_html( $signup_text ); ?>
