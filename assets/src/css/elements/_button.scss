@@ -17,5 +17,9 @@
 
 	&.button--signup {
 		padding: 10px;
+
+		&.terminal-user-logged-in {
+			background: #113649;
+		}
 	}
 }

@@ -29,11 +29,10 @@
 		display: flex;
 		justify-content: center;
 		align-content: center;
-		width: calc(100% + #{ 2* $site-gutter });
 		margin: 15px #{ -$site-gutter } 0;
 
 		@media ( query( min, tablet ) ) {
-			margin: 0 #{ -$site-gutter } 0;
+			margin: 0;
 		}
 	}
 
