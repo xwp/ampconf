@@ -209,7 +209,7 @@ add_action( 'widgets_init', 'ampnews_widgets_init' );
  * Enqueues styles.
  */
 function ampnews_enqueue_styles() {
-	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 8 );
+	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 9 );
 	wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'ampnews_enqueue_styles' );
