@@ -18,7 +18,6 @@
 		.wp-post-image {
 			position: relative;
 			width: 100%;
-			padding-bottom: 66%;
 		}
 
 		img {
@@ -31,7 +30,7 @@
 	//
 
 	&__header {
-		padding: 20px 0 0;
+		padding: 0;
 
 		@media ( query( min, desktop ) ) {
 			padding: 15px 0 0;
@@ -47,8 +46,22 @@
 		font-size: 24px;
 		text-transform: none;
 
+		&:hover {
+			a {
+				text-decoration: underline;
+			}
+		}
+
 		@media ( query( min, desktop ) ) {
 			font-size: 36px;
+		}
+
+		&-sidebar {
+			font-size: 12px;
+	
+			@media ( query( min, desktop ) ) {
+				font-size: 16px;
+			}
 		}
 	}
 
@@ -76,12 +89,18 @@
 	}
 
 	&__content {
-		margin-top: -17px;
+		padding-top: 10px;
 
 		@media ( query( min, desktop ) ) {
-			margin-top: -12px;
+			padding-top: 10px;
 		}
 
+		// AMP iframe
+		amp-iframe {
+			width: 100%;
+		}
+
+		figure,
 		p,
 		ul,
 		ol,
@@ -115,12 +134,6 @@
 		dt {
 			font-weight: 700;
 			color: $black;
-		}
-
-		.aligncenter {
-			margin-left: auto;
-			margin-right: auto;
-			text-align: center;
 		}
 
 		.alignleft {
@@ -217,19 +230,12 @@
 			font-size: 16px;
 			line-height: 20px;
 		}
-	}
 
-	//
-	// Link more.
-	//
-
-	&__link-more {
-		display: none;
-
-		.more-link {
-			@extend .button;
-
-			max-width: 240px;
+		.search-form {
+			input {
+				height: 100%;
+				font-style: italic;
+			}
 		}
 	}
 
@@ -254,7 +260,6 @@
 		padding: 0 0 10px;
 		font-size: 14px;
 		line-height: 1.5;
-		color: $muted;
 
 		@media ( query( min, desktop ) ) {
 			font-size: 16px;
@@ -262,7 +267,6 @@
 
 		a {
 			font-weight: 700;
-			color: $black;
 		}
 
 		&--byline::first-letter {
@@ -271,7 +275,6 @@
 
 		&--date a {
 			font-weight: 400;
-			color: $muted;
 		}
 	}
 
@@ -279,13 +282,22 @@
 	// Meta items separators.
 	//
 
-	&__footer &__meta--byline + &__meta--category::before {
-		content: '';
-		display: inline-block;
-		margin: 0 0 0 1em;
-		padding: 1em 0 0 1em;
-		border-left: 1px solid $border-color;
-		vertical-align: middle;
+	.post-edit-link {
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	&__footer &__meta--category,
+	&__footer .post-edit-link {
+
+		&::before {
+			content: '';
+			display: inline-block;
+			margin: 0 0 0 1em;
+			padding: 1em 0 0 1em;
+			border-left: 1px solid $border-color;
+			vertical-align: middle;
+		}
 	}
 
 	//
@@ -294,5 +306,19 @@
 
 	&__share--in-content {
 		text-align: center;
+	}
+}
+
+
+.ampnews-published {
+	display: inline-block;
+	font-size: 80%;
+	font-style: italic;
+	margin-top: 15px;
+
+	&:not(:first-child) {
+		&::before {
+			content: ' • ';
+		}
 	}
 }

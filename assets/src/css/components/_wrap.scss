@@ -5,8 +5,18 @@
 .wrap {
 	display: flex;
 	flex-flow: row wrap;
-	max-width: $site-max-width - ( 2 * $site-gutter );
+	justify-content: center;
 	margin: 0 auto;
+	max-width: $site-max-width - ( 2 * $site-gutter );
+	overflow: hidden;
+	width: 100%;
+
+	.search-form {
+		display: flex;
+		max-width: 300px;
+		margin: auto;
+		padding: 20px 0;
+	}
 
 	//
 	// Wrap item.
@@ -55,7 +65,7 @@
 				padding-bottom: $site-gutter;
 			}
 
-			span {
+			.heading--archive {
 				position: absolute;
 				font-size: 12px;
 				text-transform: uppercase;
@@ -117,7 +127,7 @@
 
 			&--primary {
 				@media ( query( min, tablet ) ) {
-					width: percentage( 2 / 3 );
+					width: calc(100% - 450px);
 				}
 			}
 
@@ -125,12 +135,13 @@
 				padding-top: 0;
 
 				@media ( query( min, tablet ) ) {
-					width: percentage( 1 / 3 );
+					width: 390px;
 				}
 
 				@media ( query( min, site-width ) ) {
 					padding-top: 20px;
 					padding-left: 100px;
+					width: 450px;
 				}
 			}
 		}
@@ -184,50 +195,6 @@
 
 			@media ( query( min, desktop ) ) {
 				padding: 60px 0;
-			}
-		}
-	}
-
-	//
-	// Triple 'Featured' layout.
-	//
-	&--triple-feature {
-
-		.wrap__item {
-			display: none;
-
-			.entry__meta {
-				padding-bottom: 0;
-			}
-
-			&:nth-child(1) {
-				@extend .entry--featured;
-				padding-bottom: $site-gutter * 2;
-
-				@media ( query( max, tablet ) ) {
-					padding-bottom: $site-gutter;
-				}
-			}
-
-			&:nth-child(2),
-			&:nth-child(3) {
-				display: block;
-
-				@media ( query( min, tablet ) ) {
-					width: 50%;
-				}
-			}
-
-			&:nth-child(2) {
-				@media ( query( min, tablet ) ) {
-					padding-right: $site-gutter;
-				}
-			}
-
-			&:nth-child(3) {
-				@media ( query( min, tablet ) ) {
-					padding-left: $site-gutter;
-				}
 			}
 		}
 	}

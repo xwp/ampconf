@@ -34,6 +34,11 @@ function ampnews_custom_header_setup() {
 }
 add_action( 'after_setup_theme', 'ampnews_custom_header_setup' );
 
+add_action ( 'wp_head', 'ampnews_print_viewport_tag' );
+function ampnews_print_viewport_tag() {
+	echo '<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" >';
+}
+
 if ( ! function_exists( 'ampnews_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.

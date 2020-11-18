@@ -2,6 +2,16 @@
 // Site Header.
 //
 
+body {
+	.site-header {
+		.site-header__branding {
+			@media ( query( min, tablet ) ) {
+				background-color: transparent;
+			}
+		}
+	}
+}
+
 .site-header {
 	display: flex;
 	flex-flow: row nowrap;
@@ -13,7 +23,46 @@
 		flex-flow: column nowrap;
 	}
 
-	//
+	> .widget {
+		order: 100;
+
+		@media ( query( max, tablet ) ) {
+			padding: 10px 0 0 0;
+
+			.widget-title {
+				font-size: 12px;
+				margin: 0 0 10px 0;
+				padding: 0;
+			}
+		}
+	}
+
+	// Set no nav box-shadow.
+	nav {
+		&.site-header__nav {
+			@media ( query( max, tablet ) ) {
+				box-shadow: none;
+				flex-wrap: wrap;
+
+				.site-header__menu {
+					flex: 0 0 100%;
+				}
+
+				.site-header-nav__button {
+					display: none;
+				}
+			}
+
+			.site-header-nav__button {
+				margin-right: 20px;
+			}
+
+			.site-header__menu {
+				flex: 1 0 auto;
+			}
+		}
+	}
+
 	// Branding container.
 	//
 
@@ -26,18 +75,15 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		color: $white;
-		background-color: $black;
 
 		@media ( query( min, tablet ) ) {
 			position: static;
 			order: 2;
 			flex-flow: column nowrap;
 			width: 100%;
-			padding: 40px 20px;
+			padding: 25px 15px 15px;
 			text-align: center;
 			color: $black;
-			background-color: transparent;
 		}
 
 		&::after {
@@ -60,16 +106,25 @@
 				transition-delay: 0.4s;
 			}
 		}
+
+		.site-header-branding__button {
+			display: none;
+		}
+
+		@media ( query( max, tablet ) ) {
+			.site-header-branding__button {
+				display: block;
+				margin-right: 5px;
+			}
+		}
 	}
 
 	&__title {
-		width: calc( 100% - 50px );
-		height: 60px;
+		flex: 1 0 auto;
 		margin: 0;
-		padding: 15px 20px;
+		padding-left: 20px;
 		font-size: 24px;
 		font-weight: 700;
-		line-height: 1.25;
 
 		@media ( query( min, tablet ) ) {
 			width: auto;
@@ -79,12 +134,8 @@
 		}
 
 		a {
-			color: $white;
+			color: $black;
 			opacity: 1;
-
-			@media ( query( min, tablet ) ) {
-				color: $black;
-			}
 
 			&:hover,
 			&:focus {
@@ -122,7 +173,6 @@
 	&__description {
 		display: none;
 		margin: 0;
-		color: $muted;
 		font-size: 18px;
 		font-weight: 300;
 
@@ -160,12 +210,7 @@
 			transform: translate( -50%, -50% );
 			height: 2px;
 			width: 20px;
-			background-color: $white;
 			transition: box-shadow 0.3s ease-out, transform 0.5s cubic-bezier( 0.23, 1, 0.32, 1 ), opacity 0.5s cubic-bezier( 0.23, 1, 0.32, 1 );
-		}
-
-		&::before {
-			box-shadow: 0 6px 0 0 $white, 0 -6px 0 0 $white;
 		}
 
 		&::after {
@@ -188,18 +233,18 @@
 	//
 
 	&__nav {
-		position: absolute;
-		z-index: 1;
-		top: 60px;
-		left: 0;
-		right: 0;
 		bottom: 0;
-		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		left: 0;
+		overflow-y: scroll;
+		position: absolute;
+		right: 0;
+		top: 30px;
 		transform: translateY( -100% );
 		transition: transform 0.5s cubic-bezier( 0.23, 1, 0.32, 1 );
-		overflow-y: scroll;
-		background-color: $black;
-		color: $white;
+		z-index: 1;
 
 		.is-menu-expanded & {
 			transform: none;
@@ -221,7 +266,6 @@
 			align-items: center;
 			transform: none;
 			transition: none;
-			box-shadow: 30vw 0 0 $black, -30vw 0 0 $black;
 
 			&::after {
 				content: none;
@@ -236,25 +280,41 @@
 	//
 	// Search form.
 	//
-
 	&__search {
-		display: none;
-		margin-top: -4px;
-		margin-bottom: -4px;
 
-		@media ( query( min, tablet ) ) {
-			display: block;
+		&.site-header__search-desktop {
+			margin-top: -4px;
+			margin-bottom: -4px;
+
+			@media ( query( min, tablet ) ) {
+				display: block;
+			}
+
+			button {
+				margin-top: 5px;
+				margin-left: 4px;
+			}
 		}
 
+		&.site-header__search-mobile {
+			@media ( query( max, tablet ) ) {
+				display: block;
+				margin: 0 5px 0 0;
+				flex: 0 0 100%;
+				padding: 10px 20px;
+			}
+		}
+
+		display: none;
+
 		input {
-			background-color: $black;
+			-webkit-appearance: none;
 			border: 0;
-			padding: 4px;
 			font-size: 14px;
-			max-width: 70px;
-			transition: max-width 100ms linear, background-color 100ms linear;
-			color: $white;
+			max-width: 90px;
+			padding: 4px;
 			text-overflow: ellipsis;
+			transition: max-width 100ms linear, background-color 100ms linear;
 
 			&:focus {
 				background-color: $white;
@@ -263,15 +323,12 @@
 			}
 
 			&::placeholder {
-				color: $white;
 				font-size: 14px;
 			}
 		}
 
 		button {
 			@extend %search-icon;
-			margin-top: 4px;
-			margin-left: 4px;
 			float: right;
 		}
 	}

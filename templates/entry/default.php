@@ -10,18 +10,18 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="entry__thumbnail">
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'ampnews-768x432', array( 'data-amp-layout' => 'fill' ) ); ?>
+				<?php the_post_thumbnail( 'ampnews-768x432', array( 'data-amp-layout' => 'intrinsic' ) ); ?>
 			</a>
 		</figure><!-- .entry__thumbnail -->
 	<?php endif; ?>
 
 	<header class="entry__header">
 		<?php get_template_part( 'templates/entry/meta/date' ); ?>
-		<?php the_title( '<h3 class="entry__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+		<?php the_title( '<h3 class="entry__title"><a href="' . esc_url( get_permalink() ) . '" ' . ampnews_permalink_open_new()  . 'rel="bookmark">', '</a></h3>' ); ?>
 	</header><!-- .entry__header -->
 
 	<div class="entry__summary">
-		<p><?php the_excerpt(); ?></p>
+		<?php the_excerpt(); ?>
 	</div><!-- .entry__summary -->
 
 	<footer class="entry__footer">

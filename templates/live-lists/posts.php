@@ -17,7 +17,10 @@ if ( have_posts() ) :
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-				get_template_part( 'templates/entry/slim' );
+				get_template_part( apply_filters(
+					'ampnews-index-template',
+					'templates/entry/slim'
+				) );
 			endwhile;
 			?>
 		</div>

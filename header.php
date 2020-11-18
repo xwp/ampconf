@@ -9,7 +9,10 @@
  * @package AMPNews
  */
 
-$description = get_bloginfo( 'description', 'display' );
+$description    = get_bloginfo( 'description', 'display' );
+$signup_link    = apply_filters( 'ampnews-signup-link', '#' );
+$signup_text    = apply_filters( 'ampnews-signup-text', __( 'Signup', 'ampnews' ) );
+$signup_classes = apply_filters( 'ampnews-signup-class', 'site-header-branding__button button button--signup' );
 ?>
 <!doctype html>
 <html amp <?php language_attributes(); ?>>
@@ -19,13 +22,13 @@ $description = get_bloginfo( 'description', 'display' );
 </head>
 
 <body <?php body_class(); ?>>
-
+	<?php do_action( 'ampnews-after-body' ); ?>
 	<div id="page" class="" [class]="ampNews.mobileMenu ? 'no-scroll' : ''">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ampnews' ); ?></a>
 
 		<header class="site-header" [class]="ampNews.mobileMenu ? 'site-header is-menu-expanded' : 'site-header'">
-
+			<?php dynamic_sidebar( 'ampnews-header' ); ?>
 			<div class="site-header__branding">
 				<<?php ampnews_branding_tag(); ?> class="site-header__title">
 					<?php if ( has_custom_logo() ) : ?>
@@ -34,22 +37,36 @@ $description = get_bloginfo( 'description', 'display' );
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					<?php endif; ?>
 				</<?php ampnews_branding_tag(); ?>>
-
 				<?php if ( $description || is_customize_preview() ) : ?>
 					<p class="site-header__description"><?php echo esc_html( $description ); ?></p>
 				<?php endif; ?>
-
+				<?php if ( $signup_link && $signup_text ) : ?>
+					<a
+					class="<?php echo esc_attr( $signup_classes ); ?>"
+					href="<?php echo esc_url( $signup_link ); ?>"
+					>
+						<?php echo esc_html( $signup_text ); ?>
+					</a>
+				<?php endif; ?>
 				<button
-						class="site-header__menu-toggle"
-						on="tap:AMP.setState( { ampNews: { mobileMenu: ! ampNews.mobileMenu } } )"
-						aria-controls="primary-menu"
-						aria-expanded="false">
+					class="site-header__menu-toggle"
+					on="tap:AMP.setState( { ampNews: { mobileMenu: ! ampNews.mobileMenu } } )"
+					aria-controls="primary-menu"
+					aria-expanded="false">
 					<span class="screen-reader-text"><?php esc_html_e( 'Open menu', 'ampnews' ); ?></span>
 				</button>
-
 			</div>
+			<?php dynamic_sidebar( 'ampnews-header-bottom' ); ?>
 
 			<nav class="site-header__nav">
+				<?php if ( $signup_link && $signup_text ) : ?>
+					<a
+					class="<?php echo esc_attr( $signup_classes ); ?>"
+					href="<?php echo esc_url( $signup_link ); ?>"
+					>
+						<?php echo esc_html( $signup_text ); ?>
+					</a>
+				<?php endif; ?>
 				<?php
 					wp_nav_menu(
 						array(
@@ -60,11 +77,13 @@ $description = get_bloginfo( 'description', 'display' );
 						)
 					);
 				?>
-
-				<div class="site-header__search">
+				<div class="site-header__search site-header__search-mobile">
+					<?php get_search_form(); ?>
+				</div>
+				<div class="site-header__search site-header__search-desktop">
 					<?php get_search_form(); ?>
 				</div>
 			</nav>
 		</header>
-
+		<?php do_action( 'ampnews-before-content' ); ?>
 		<div id="content">

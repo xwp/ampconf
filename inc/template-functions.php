@@ -49,18 +49,19 @@ add_filter( 'excerpt_more', 'ampnews_excerpt_more' );
  */
 function ampnews_get_the_archive_title( $title ) {
 	$parts = explode( ':', $title );
-
 	if ( 2 <= count( $parts ) ) {
 		$title = str_replace( $parts[0] . ': ', '', $title );
 
 		$title = wp_kses(
 			sprintf(
-				'<span>%1$s</span>%2$s',
+				'<span class="heading--archive">%1$s</span>%2$s',
 				$parts[0],
 				$title
 			),
 			array(
-				'span' => array(),
+				'span' => array(
+					'class' => true
+				),
 			)
 		);
 	}
@@ -68,3 +69,18 @@ function ampnews_get_the_archive_title( $title ) {
 	return $title;
 }
 add_filter( 'get_the_archive_title', 'ampnews_get_the_archive_title' );
+
+
+/**
+ * Prints the published date if applicable.
+ */
+function ampnews_published() {
+	printf(
+		'<span class="ampnews-published">%s %s</span>',
+		__( 'Posted ', 'ampnews' ),
+		esc_html( get_the_date() )
+	);
+}
+
+add_action( 'ampnews-before-article', 'ampnews_published', 1000 );
+

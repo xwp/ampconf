@@ -6,7 +6,14 @@
  */
 
 ?>
-<article <?php ampnews_the_post_attributes( array( 'class' => 'entry entry--slim' ) ); ?>>
+<article <?php ampnews_the_post_attributes( array( 'class' => 'entry entry--slim-minimal' ) ); ?>>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<figure class="entry__thumbnail">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'ampnews-280x158', array( 'data-amp-layout' => 'intrinsic' ) ); ?>
+			</a>
+		</figure><!-- .entry__thumbnail -->
+	<?php endif; ?>
 
 	<header class="entry__header">
 		<?php get_template_part( 'templates/entry/meta/date' ); ?>
@@ -14,14 +21,6 @@
 			'<h3 class="entry__title"><a href="' . esc_url( get_permalink() ) . '" ' . ampnews_permalink_open_new()  . 'rel="bookmark">', '</a></h3>'
 		); ?>
 	</header><!-- .entry__header -->
-
-	<?php if ( has_post_thumbnail() ) : ?>
-		<figure class="entry__thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'ampnews-768x432', array( 'data-amp-layout' => 'intrinsic' ) ); ?>
-			</a>
-		</figure><!-- .entry__thumbnail -->
-	<?php endif; ?>
 
 	<div class="entry__summary">
 		<?php do_action( 'ampnews-before-excerpt' ); ?>

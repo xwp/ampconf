@@ -12,6 +12,14 @@
 	</div><!-- End #content -->
 
 	<footer class="wrap wrap--full-width wrap--footer">
+		<?php
+		if ( is_home() ) {
+			do_action( 'ampnews-before-footer' );
+		} else {
+			do_action( 'ampnews-before-footer-single' );
+		}
+		dynamic_sidebar( 'ampnews-footer' );
+		?>
 		<nav class="wrap__item wrap__item--footer-menu">
 			<?php
 				wp_nav_menu(
@@ -23,7 +31,7 @@
 				);
 			?>
 		</nav>
-
+		<?php do_action( 'ampnews-after-footer' ); ?>
 		<p class="wrap__item wrap__item--footer-copyright">
 			<?php printf( '&copy; %s', esc_html( date( 'Y' ) ) ); ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>

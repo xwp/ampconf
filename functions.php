@@ -33,6 +33,8 @@ if ( ! function_exists( 'ampnews_setup' ) ) :
 
 		add_theme_support( 'amp', array(
 			'comments_live_list' => true,
+			'templates_supported' => 'all',
+			'paired' => true,
 		) );
 
 		// Add default posts and comments RSS feed links to head.
@@ -81,7 +83,7 @@ if ( ! function_exists( 'ampnews_setup' ) ) :
 			apply_filters(
 				'ampnews_custom_background_args',
 				array(
-					'default-color' => 'ffffff',
+					'default-color' => 'f1f1f1',
 					'default-image' => '',
 				)
 			)
@@ -124,7 +126,7 @@ if ( ! function_exists( 'ampnews_setup' ) ) :
 		) as $size ) {
 			$dimensions = explode( 'x', $size );
 
-			add_image_size( 'ampnews-' . $size, $dimensions[0], $dimensions[1], true );
+			add_image_size( 'ampnews-' . $size, $dimensions[0], $dimensions[1], false );
 		}
 	}
 endif;
@@ -159,7 +161,40 @@ function ampnews_widgets_init() {
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'ampnews' ),
-			'id'            => 'sidebar-1',
+			'id'            => 'ampnews-sidebar',
+			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Header (Top)', 'ampnews' ),
+			'id'            => 'ampnews-header',
+			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Header (Bottom)', 'ampnews' ),
+			'id'            => 'ampnews-header-bottom',
+			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'ampnews' ),
+			'id'            => 'ampnews-Footer',
 			'description'   => esc_html__( 'Add widgets here.', 'ampnews' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -174,7 +209,7 @@ add_action( 'widgets_init', 'ampnews_widgets_init' );
  * Enqueues styles.
  */
 function ampnews_enqueue_styles() {
-	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css' );
+	wp_enqueue_style( 'ampnews', get_template_directory_uri() . '/assets/dist/css/main.css', array(), 9 );
 	wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,700', array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'ampnews_enqueue_styles' );
@@ -216,13 +251,6 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
 /**
  * AMP plugin dependency.

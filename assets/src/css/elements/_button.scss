@@ -7,13 +7,19 @@
 	justify-content: center;
 	align-items: center;
 	padding: 15px;
-	color: $white;
-	background-color: $black;
 	border: none;
 	font-weight: 700;
 	text-decoration: none;
 
 	&--inline {
 		display: inline-flex;
+	}
+
+	&.button--signup {
+		padding: 10px;
+
+		&.terminal-user-logged-in {
+			background: #113649;
+		}
 	}
 }

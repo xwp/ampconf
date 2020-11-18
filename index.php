@@ -22,10 +22,12 @@ get_header(); ?>
 				/* Start the Loop */
 				while ( have_posts() ) :
 					the_post();
-
 					?>
 					<div class="wrap__subitem wrap__subitem--blog">
-						<?php get_template_part( 'templates/entry/slim' ); ?>
+						<?php get_template_part( apply_filters(
+							'ampnews-index-template',
+							'templates/entry/slim'
+						) ); ?>
 					</div>
 					<?php
 

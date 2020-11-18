@@ -2,6 +2,18 @@
 // Slim entry.
 //
 
+.terminal-amp-active {
+	.entry {
+		&--slim &__thumbnail {
+			a {
+				display: flex;
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+}
+
 .entry {
 
 	&--slim {
@@ -24,24 +36,24 @@
 	//
 
 	&--slim &__thumbnail {
-		float: right;
-		width: 122px;
+		// float: right;
+		// width: 122px;
 		padding: 0;
-		margin: 0 0 0 30px;
+		// margin: 0 0 0 30px;
 
-		@media ( query( min, mobile-large ) ) {
-			width: 160px;
-		}
+		// @media ( query( min, mobile-large ) ) {
+		// 	width: 160px;
+		// }
 
-		@media ( query( min, desktop ) ) {
-			width: 240px;
-		}
+		// @media ( query( min, desktop ) ) {
+		// 	width: 240px;
+		// }
 
-		&::after {
-			content: '';
-			display: table;
-			clear: both;
-		}
+		// &::after {
+		// 	content: '';
+		// 	display: table;
+		// 	clear: both;
+		// }
 	}
 
 	//
@@ -50,15 +62,15 @@
 
 	&--slim &__header {
 		padding: 0;
-		margin-right: 142px;
+		// margin-right: 142px;
 
-		@media ( query( min, mobile-large ) ) {
-			margin-right: 190px;
-		}
+		// @media ( query( min, mobile-large ) ) {
+		// 	margin-right: 190px;
+		// }
 
-		@media ( query( min, desktop ) ) {
-			margin-right: 270px;
-		}
+		// @media ( query( min, desktop ) ) {
+		// 	margin-right: 270px;
+		// }
 	}
 
 	//
@@ -66,15 +78,16 @@
 	//
 
 	&--slim &__title {
-		font-size: 16px;
+		margin-bottom: 10px;
+		// font-size: 16px;
 
-		@media ( query( min, mobile-large ) ) {
-			font-size: 20px;
-		}
+		// @media ( query( min, mobile-large ) ) {
+		// 	font-size: 20px;
+		// }
 
-		@media ( query( min, desktop ) ) {
-			font-size: 24px;
-		}
+		// @media ( query( min, desktop ) ) {
+		// 	font-size: 24px;
+		// }
 	}
 
 	//

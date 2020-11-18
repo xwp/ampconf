@@ -1,6 +1,6 @@
 <?php
 /**
- * Full page template.
+ * Search page template.
  *
  * @package AMPNews
  */
@@ -18,13 +18,9 @@
 	</header><!-- .entry__header -->
 
 	<div class="entry__content">
-		<?php the_content(); ?>
-		<div class="entry__share entry__share--in-content">
-		</div>
+		<?php
+			get_search_form();
+			the_content();
+		?>
 	</div><!-- .entry__summary -->
-
-	<footer class="entry__footer">
-		<div class="entry__share entry__share--in-footer">
-		</div>
-</footer>
 </article><!-- .entry -->

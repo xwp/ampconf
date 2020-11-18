@@ -10,7 +10,7 @@ $current_id = get_the_ID();
 
 $stories = new WP_Query( array(
 	'posts_per_page'      => $max_shown + 1,
-	'post_type'           => get_post_type(),
+	'post_type'           => apply_filters( 'amp-news-post-type', get_post_type() ),
 	'ignore_sticky_posts' => true,
 ) );
 
@@ -19,20 +19,6 @@ if ( $stories->have_posts() ) : ?>
 	<div class="wrap__item wrap__item--heading">
 		<h3 class="heading heading--widget"><?php esc_html_e( 'More Stories', 'ampnews' ); ?></h3>
 	</div>
-
-	<?php if ( class_exists( 'Jetpack_Subscriptions_Widget' ) ) : ?>
-		<div class="wrap__item wrap__item--widget">
-			<?php
-			the_widget( 'Jetpack_Subscriptions_Widget', array(
-				'title'                 => esc_html__( 'Must Read', 'ampnews' ),
-				'subscribe_text'        => esc_html__( '5 stories you cannot afford to miss, straight your inbox.', 'ampnews' ),
-				'subscribe_placeholder' => esc_html__( 'Email', 'ampnews' ),
-				'subscribe_button'      => esc_html__( 'Add', 'ampnews' ),
-				'success_message'       => esc_html__( 'Successfully subscribed!', 'ampnews' ),
-			) );
-			?>
-		</div>
-	<?php endif; ?>
 
 	<amp-live-list id="more-stories" class="live-list" data-poll-interval="<?php echo esc_attr( AMPNEWS_LIVE_LIST_POLL_INTERVAL ); ?>" data-max-items-per-page="<?php echo esc_attr( $max_shown ); ?>">
 		<div update class="live-list__button">
